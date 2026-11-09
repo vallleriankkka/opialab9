@@ -28,37 +28,8 @@ y = 5
 #include <math.h>
 
 #define ROW 10
-
-int check(double x, double y)
-{
-	double r = sqrt(pow(x, 2) + pow(y, 2));
-	int state = (r <= 1.0) || (r >= 2.0 && r <= 3.0);
-	return state;
-}
-
-void paint()
-{
-	for (int row = 5; row >= -5; row--) //по строкам сверху вниз (от 5 до -5)
-	{
-
-		for (int col = -10; col <= 10; col++) //по столбцам слева направо (от -10 до 10)
-		{
-
-			double x = col * 0.5; //делим на 2 для ровных кругов
-			double y = row;
-
-			if (check(x, y)) 
-			{
-				printf("1");
-			}
-			else 
-			{
-				printf("0");
-			}
-		}
-		printf("\n");
-	}
-}
+int check(double x, double y);
+void paint();
 
 int main() 
 {
@@ -97,11 +68,42 @@ int main()
 			puts("Введено неверное число\n");
 		}
 
-		puts("что дальше?\n");
+		puts("Что дальше?\n");
 		scanf("%d", &num);
 	}
 
 	return 0;
+}
+
+int check(double x, double y)
+{
+	double r = sqrt(pow(x, 2) + pow(y, 2));
+	int state = (r <= 1.0) || (r >= 2.0 && r <= 3.0);
+	return state;
+}
+
+void paint()
+{
+	for (int row = 5; row >= -5; row--) //по строкам сверху вниз (от 5 до -5)
+	{
+
+		for (int col = -10; col <= 10; col++) //по столбцам слева направо (от -10 до 10)
+		{
+
+			double x = col * 0.5; //делим на 2 для ровных кругов
+			double y = row;
+
+			if (check(x, y))
+			{
+				printf("1");
+			}
+			else
+			{
+				printf("0");
+			}
+		}
+		printf("\n");
+	}
 }
 ```
 ## 2. Результаты работы программы
